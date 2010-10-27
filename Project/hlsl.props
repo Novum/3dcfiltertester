@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup
+    Condition="'$(HLSLBeforeTargets)' == '' and '$(HLSLAfterTargets)' == '' and '$(ConfigurationType)' != 'Makefile'">
+    <HLSLAfterTargets>CustomBuild</HLSLAfterTargets>
+  </PropertyGroup>
+  <ItemDefinitionGroup>
+    <HLSL>
+      <NoLogo>true</NoLogo>
+      <DebuggingInformation>false</DebuggingInformation>	  
+      <OptimizationLevel>0</OptimizationLevel>
+	  <ObjectFile>$(IntDir)%(Filename).so</ObjectFile>
+	  <EntryPoint>main</EntryPoint>
+      <CommandLineTemplate>fxc.exe [ObjectFile] [EntryPoint] [NoLogo] [DebuggingInformation] [OptimizationLevel] [TargetProfile] [AdditionalOptions] &quot;[Inputs]&quot;</CommandLineTemplate>
+      <Outputs>%(ObjectFile)</Outputs>
+      <ExecutionDescription>Compiling Shader %(Filename)%(Extension)...</ExecutionDescription>
+      <ShowOnlyRuleProperties>false</ShowOnlyRuleProperties>
+    </HLSL>
+  </ItemDefinitionGroup>
+</Project>

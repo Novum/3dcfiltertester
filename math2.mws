@@ -1,0 +1,37 @@
+{VERSION 6 0 "IBM INTEL NT" "6.0" }
+{USTYLETAB {CSTYLE "Maple Input" -1 0 "Courier" 0 1 255 0 0 1 0 1 0 0 
+1 0 0 0 0 1 }{CSTYLE "2D Math" -1 2 "Times" 0 1 0 0 0 0 0 0 2 0 0 0 0 
+0 0 1 }{CSTYLE "2D Output" 2 20 "" 0 1 0 0 255 1 0 0 0 0 0 0 0 0 0 1 }
+{PSTYLE "Normal" -1 0 1 {CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 
+0 0 0 }0 0 0 -1 -1 -1 0 0 0 0 0 0 -1 0 }{PSTYLE "Maple Output" 0 11 1 
+{CSTYLE "" -1 -1 "" 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 }3 3 0 -1 -1 -1 0 
+0 0 0 0 0 -1 0 }}
+{SECT 0 {EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 8 "restart;" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 12 "x := 'dudx':" }}{PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 12 "y := 'dudy':" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 12 "z \+
+:= 'dvdx':" }}{PARA 0 "> " 0 "" {MPLTEXT 1 0 12 "w := 'dvdy':" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "
+" {MPLTEXT 1 0 56 "extend := (x*sin(a)+y*cos(a))^2 + (z*sin(a)+w*cos(a
+))^2;" }}{PARA 11 "" 1 "" {XPPMATH 20 "6#>%'extendG,&*$),&*&%%dudxG\"
+\"\"-%$sinG6#%\"aGF+F+*&%%dudyGF+-%$cosGF.F+F+\"\"#F+F+*$),&*&%%dvdxGF
++F,F+F+*&%%dvdyGF+F2F+F+F4F+F+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 
+1 0 30 "extendd := diff(extend,a) = 0;" }}{PARA 11 "" 1 "" {XPPMATH 
+20 "6#>%(extenddG/,&*(\"\"#\"\"\",&*&%%dudxGF)-%$sinG6#%\"aGF)F)*&%%du
+dyGF)-%$cosGF/F)F)F),&*&F,F)F3F)F)*&F2F)F-F)!\"\"F)F)*(F(F),&*&%%dvdxG
+F)F-F)F)*&%%dvdyGF)F3F)F)F),&*&F<F)F3F)F)*&F>F)F-F)F8F)F)\"\"!" }}}
+{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 28 "result := solve(extendd, a):
+" }}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 15 "a := result[1];" }}
+{PARA 11 "" 1 "" {XPPMATH 20 "6#>%\"aG-%'arctanG6#,$*(\"\"#!\"\",&*&%%
+dudyG\"\"\"%%dudxGF/F/*&%%dvdyGF/%%dvdxGF/F/F+,,*$)F0F*F/F/*$)F.F*F/F+
+*$)F3F*F/F/*$)F2F*F/F+*$,8*$)F0\"\"%F/F/*(F*F/F8F/F6F/F/*(F*F/F6F/F:F/
+F/*(F*F/F6F/F<F/F+*$)F.FAF/F/*(F*F/F8F/F:F/F+*(F*F/F8F/F<F/F/*$)F3FAF/
+F/*(F*F/F<F/F:F/F/*$)F2FAF/F/*,\"\")F/F.F/F0F/F2F/F3F/F/#F/F*F/F/F/" }
+}}{EXCHG {PARA 0 "> " 0 "" {MPLTEXT 1 0 10 "result[2];" }}{PARA 11 "" 
+1 "" {XPPMATH 20 "6#,$-%'arctanG6#,$*(\"\"#!\"\",,*$)%%dudxGF)\"\"\"F*
+*$)%%dudyGF)F/F/*$)%%dvdxGF)F/F**$)%%dvdyGF)F/F/*$,8*$)F.\"\"%F/F/*(F)
+F/F1F/F-F/F/*(F)F/F-F/F4F/F/*(F)F/F-F/F7F/F**$)F2F=F/F/*(F)F/F1F/F4F/F
+**(F)F/F1F/F7F/F/*$)F5F=F/F/*(F)F/F7F/F4F/F/*$)F8F=F/F/*,\"\")F/F2F/F.
+F/F8F/F5F/F/#F/F)F/F/,&*&F2F/F.F/F/*&F8F/F5F/F/F*F/F*" }}}{EXCHG 
+{PARA 0 "> " 0 "" {MPLTEXT 1 0 0 "" }}}{EXCHG {PARA 0 "> " 0 "" 
+{MPLTEXT 1 0 0 "" }}}}{MARK "9 0 0" 0 }{VIEWOPTS 1 1 0 1 1 1803 1 1 1 
+1 }{PAGENUMBERS 0 1 2 33 1 1 }

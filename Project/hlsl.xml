@@ -1,0 +1,167 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ProjectSchemaDefinitions xmlns="http://schemas.microsoft.com/build/2009/properties" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+  <Rule
+    Name="HLSL"
+    PageTemplate="tool"
+    DisplayName="Microsoft Direct3D Shader Compiler"
+    Order="200">
+    <Rule.DataSource>
+      <DataSource
+        Persistence="ProjectFile"
+        ItemType="HLSL" />
+    </Rule.DataSource>
+    <Rule.Categories>
+      <Category
+        Name="General">
+        <Category.DisplayName>
+          <sys:String>General</sys:String>
+        </Category.DisplayName>
+      </Category>
+      <Category
+        Name="Command Line"
+        Subtype="CommandLine">
+        <Category.DisplayName>
+          <sys:String>Command Line</sys:String>
+        </Category.DisplayName>
+      </Category>
+    </Rule.Categories>
+    <StringProperty
+      Name="Inputs"
+      Category="Command Line"
+      IsRequired="true">
+      <StringProperty.DataSource>
+        <DataSource
+          Persistence="ProjectFile"
+          ItemType="HLSL"
+          SourceType="Item" />
+      </StringProperty.DataSource>
+    </StringProperty>
+    <StringProperty
+      Name="ObjectFile"
+      DisplayName="Object File Name"
+      Description="Select the output file name.     (/Fo)" 
+	  Switch="/Fo&quot;[value]&quot;"/>
+    <StringProperty
+      Name="EntryPoint"
+      DisplayName="Shader Entry Point"
+      Description="Select the shader entry point.     (/E)" 
+	  Switch="/E&quot;[value]&quot;"/> 	  
+    <BoolProperty
+      Name="NoLogo"      
+      DisplayName="Suppress Startup Banner"
+      Description="Suppress the display of the startup banner and information messages.     (/nologo)"
+      Switch="/nologo" />
+    <BoolProperty
+      Name="DebuggingInformation"      
+      DisplayName="Enable Debugging Information"
+      Description="Enable Debugging Information.     (/Zi)"
+      Switch="/Zi" />	  
+    <EnumProperty
+      Name="OptimizationLevel"
+      DisplayName="Optimization Level"
+      Description="Optimization Level.      (/Od /O0, /O1, /O2, /O3)">
+      <EnumValue
+        Name="0"
+		DisplayName="Disable Optimizations"
+         Switch="/Od" />
+      <EnumValue
+        Name="1"
+        DisplayName="Optimization Level 0"
+        Switch="/Zp1" />
+      <EnumValue
+        Name="2"
+        DisplayName="Optimization Level 1"
+        Switch="/O1" />
+      <EnumValue
+        Name="3"
+        DisplayName="Optimization Level 2"
+        Switch="/O2" />
+      <EnumValue
+        Name="4"
+        DisplayName="Optimization Level 3"
+        Switch="/O3" />
+    </EnumProperty>
+    <EnumProperty
+      Name="TargetProfile"
+      DisplayName="Target Profile"
+      Description="Target Profile.      (/Tcs_4_0 /Tcs4_1 /Tcs5_0 /Tds_5_0 /Tgs_4_0 /Tgs_4_1 /Tgs_5_0 /Ths_5_0 /Tps_4_0 /Tps_4_1 /Tps_5_0 /Tvs_4_0 /Tvs_4_1 /Tvs_5_0)">
+      <EnumValue
+        Name="0"
+		DisplayName="Compute Shader 4.0"
+         Switch="/Tcs_4_0" />
+      <EnumValue
+        Name="1"
+		DisplayName="Compute Shader 4.1"
+         Switch="/Tcs_4_1" />
+      <EnumValue
+        Name="2"
+		DisplayName="Compute Shader 5.0"
+         Switch="/Tcs_5_0" />
+      <EnumValue
+        Name="3"
+		DisplayName="Domain Shader 5.0"
+         Switch="/Tds_5_0" />
+      <EnumValue
+        Name="4"
+		DisplayName="Geometry Shader 4.0"
+         Switch="/Tgs_4_0" />
+      <EnumValue
+        Name="5"
+		DisplayName="Geometry Shader 4.1" 
+         Switch="/Tgs_4_1" />
+      <EnumValue
+        Name="6"
+		DisplayName="Geometry Shader 5.0"
+         Switch="/Tgs_5_0" />
+      <EnumValue
+        Name="7"
+		DisplayName="Hull Shader 5.0"
+         Switch="/Ths_5_0" />	
+      <EnumValue
+        Name="8"
+		DisplayName="Pixel Shader 4.0"
+         Switch="/Tps_4_0" />
+      <EnumValue
+        Name="9"
+		DisplayName="Pixel Shader 4.1"
+         Switch="/Tps_4_1" />
+      <EnumValue
+        Name="10"
+		DisplayName="Pixel Shader 5.0"
+         Switch="/Tps_5_0" />	
+      <EnumValue
+        Name="11"
+		DisplayName="Vertex Shader 4.0"
+         Switch="/Tvs_4_0" />
+      <EnumValue
+        Name="12"
+		DisplayName="Vertex Shader 4.1"
+         Switch="/Tvs_4_1" />
+      <EnumValue
+        Name="13"
+		DisplayName="Vertex Shader 5.0"
+         Switch="/Tvs_5_0" />			 
+    </EnumProperty>	
+    <StringProperty
+      Subtype="AdditionalOptions"
+      Name="AdditionalOptions"
+      Category="Command Line">
+      <StringProperty.DisplayName>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.DisplayName>
+      <StringProperty.Description>
+        <sys:String>Additional Options</sys:String>
+      </StringProperty.Description> 
+    </StringProperty>
+  </Rule>
+  <ItemType
+    Name="HLSL"
+    DisplayName="Microsoft Direct3D Shader Compiler" />
+  <FileExtension
+    Name="*.hlsl"
+    ContentType="HLSL" />
+  <ContentType
+    Name="HLSL"
+    DisplayName="Microsoft Direct3D Shader Compiler"
+    ItemType="HLSL" />
+</ProjectSchemaDefinitions>

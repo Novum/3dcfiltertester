@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>Filter Tester</ProjectName>
+    <ProjectGuid>{DD9A80A8-7057-43E8-90B2-17740BD2C1CB}</ProjectGuid>
+    <RootNamespace>Custom Filtering</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="HLSL.props" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)\..</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\..</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">e:\Programming\libraries\wxWidgets-2.9.0\include;e:\Programming\Libraries\Microsoft DirectX SDK (June 2010)\include;E:\Programming\Libraries\boost\include\boost-1_43;$(IncludePath)</IncludePath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">e:\Programming\libraries\wxWidgets-2.9.0\include\msvc;e:\Programming\libraries\wxWidgets-2.9.0\include;e:\Programming\Libraries\Microsoft DirectX SDK (June 2010)\include;E:\Programming\Libraries\boost\include\boost-1_43;$(IncludePath)</IncludePath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <HLSL_Shader>
+      <EnableDebugInfo>true</EnableDebugInfo>
+      <EntryPoint>vs_main</EntryPoint>
+      <OutputObjectFile>$(TargetDir)\CompiledShaders\$(ProjectName)Debug.vso</OutputObjectFile>
+      <Dependencies>$(ProjectDir)\Globals.hlsl</Dependencies>
+    </HLSL_Shader>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;WXUSINGDLL;wxUSE_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>d3d10.lib;dxgi.lib;d3dx10d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>..\$(ProjectName)Debug.exe</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <HLSL_Shader>
+      <OptimizationLevel>4</OptimizationLevel>
+      <EntryPoint>vs_main</EntryPoint>
+      <OutputObjectFile>$(TargetDir)\CompiledShaders\$(ProjectName).vso</OutputObjectFile>
+      <Dependencies>$(ProjectDir)\Globals.hlsl</Dependencies>
+    </HLSL_Shader>
+    <ClCompile>
+      <Optimization>Full</Optimization>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <OmitFramePointers>true</OmitFramePointers>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;WXUSINGDLL;wxUSE_UNICODE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions2</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <OpenMPSupport>false</OpenMPSupport>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>d3d10.lib;dxgi.lib;d3dx10.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <OutputFile>..\$(ProjectName).exe</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Source\Engine\BufferInterfaces.h" />
+    <ClInclude Include="..\Source\Engine\Camera.h" />
+    <ClInclude Include="..\Source\Engine\D3DHelper.h" />
+    <ClInclude Include="..\Source\Engine\DepthStencilBuffer.h" />
+    <ClInclude Include="..\Source\Engine\DynamicBatchManager.h" />
+    <ClInclude Include="..\Source\Engine\DynamicConstantBuffer.h" />
+    <ClInclude Include="..\Source\Engine\Engine.h" />
+    <ClInclude Include="..\Source\Engine\Exception.h" />
+    <ClInclude Include="..\Source\Engine\FontRenderer.h" />
+    <ClInclude Include="..\Source\Engine\LinearMath.h" />
+    <ClInclude Include="..\Source\Engine\Plane.h" />
+    <ClInclude Include="..\Source\Engine\PlaneProbe.h" />
+    <ClInclude Include="..\Source\Engine\ProbeObject.h" />
+    <ClInclude Include="..\Source\Engine\ProbeObjectManager.h" />
+    <ClInclude Include="..\Source\Engine\Ray.h" />
+    <ClInclude Include="..\Source\Engine\Renderer.h" />
+    <ClInclude Include="..\Source\Engine\RenderStateManager.h" />
+    <ClInclude Include="..\Source\Engine\RenderTarget.h" />
+    <ClInclude Include="..\Source\Engine\StaticBuffers.h" />
+    <ClInclude Include="..\Source\Engine\SwapChain.h" />
+    <ClInclude Include="..\Source\Engine\Texture.h" />
+    <ClInclude Include="..\Source\Engine\Timer.h" />
+    <ClInclude Include="..\Source\Engine\TunnelProbe.h" />
+    <ClInclude Include="..\Source\GUI\Application.h" />
+    <ClInclude Include="..\Source\GUI\Exception.h" />
+    <ClInclude Include="..\Source\GUI\Frame.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="..\Source\GUI\SettingsPane.h" />
+    <ClInclude Include="..\Source\GUI\Viewport.h" />
+    <ClInclude Include="..\Source\Forms\ScreenshotDialog.h" />
+    <ClInclude Include="..\Source\Misc\mmgr.h" />
+    <ClInclude Include="..\Source\Misc\nommgr.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\Source\Engine\Camera.cpp" />
+    <ClCompile Include="..\Source\Engine\D3DHelper.cpp" />
+    <ClCompile Include="..\Source\Engine\DepthStencilBuffer.cpp" />
+    <ClCompile Include="..\Source\Engine\DynamicBatchManager.cpp" />
+    <ClCompile Include="..\Source\Engine\DynamicConstantBuffer.cpp" />
+    <ClCompile Include="..\Source\Engine\Engine.cpp" />
+    <ClCompile Include="..\Source\Engine\FontRenderer.cpp" />
+    <ClCompile Include="..\Source\Engine\Plane.cpp" />
+    <ClCompile Include="..\Source\Engine\PlaneProbe.cpp" />
+    <ClCompile Include="..\Source\Engine\ProbeObjectManager.cpp" />
+    <ClCompile Include="..\Source\Engine\Ray.cpp" />
+    <ClCompile Include="..\Source\Engine\Renderer.cpp" />
+    <ClCompile Include="..\Source\Engine\RenderStateManager.cpp" />
+    <ClCompile Include="..\Source\Engine\RenderTarget.cpp" />
+    <ClCompile Include="..\Source\Engine\StaticBuffers.cpp" />
+    <ClCompile Include="..\Source\Engine\SwapChain.cpp" />
+    <ClCompile Include="..\Source\Engine\Texture.cpp" />
+    <ClCompile Include="..\Source\Engine\Timer.cpp" />
+    <ClCompile Include="..\Source\Engine\TunnelProbe.cpp" />
+    <ClCompile Include="..\Source\GUI\Application.cpp" />
+    <ClCompile Include="..\Source\GUI\Frame.cpp" />
+    <ClCompile Include="..\Source\GUI\SettingsPane.cpp" />
+    <ClCompile Include="..\Source\GUI\Viewport.cpp" />
+    <ClCompile Include="..\Source\Forms\ScreenshotDialog.cpp" />
+    <ClCompile Include="..\Source\Misc\mmgr.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <HLSL Include="..\Source\Shaders\ALUFilteringPS.hlsl">
+      <Profile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4</Profile>
+      <EntryPoint Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ps_main</EntryPoint>
+      <OutputObjectFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(TargetDir)\CompiledShaders\$(ProjectName)Debug.pso</OutputObjectFile>
+      <Profile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4</Profile>
+      <EntryPoint Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ps_main</EntryPoint>
+      <OutputObjectFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)\CompiledShaders\$(ProjectName).pso</OutputObjectFile>
+      <Dependencies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\Globals.hlsl</Dependencies>
+      <FileType>Document</FileType>
+      <TargetProfile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">8</TargetProfile>
+      <ObjectFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)/CompiledShaders/%(Filename).so</ObjectFile>
+    </HLSL>
+    <HLSL Include="..\Source\Shaders\FilterGlobals.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <FileType>Document</FileType>
+    </HLSL>
+    <HLSL Include="..\Source\Shaders\FontPS.hlsl">
+      <Profile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4</Profile>
+      <EntryPoint Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ps_main</EntryPoint>
+      <OutputObjectFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(TargetDir)\CompiledShaders\$(ProjectName)Debug.pso</OutputObjectFile>
+      <Profile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4</Profile>
+      <EntryPoint Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ps_main</EntryPoint>
+      <OutputObjectFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)\CompiledShaders\$(ProjectName).pso</OutputObjectFile>
+      <Dependencies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\Globals.hlsl</Dependencies>
+      <FileType>Document</FileType>
+      <TargetProfile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">8</TargetProfile>
+      <ObjectFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)/CompiledShaders/%(Filename).so</ObjectFile>
+    </HLSL>
+    <HLSL Include="..\Source\Shaders\FontVS.hlsl">
+      <Profile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">0</Profile>
+      <EntryPoint Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">vs_main</EntryPoint>
+      <Profile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">0</Profile>
+      <EntryPoint Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vs_main</EntryPoint>
+      <Dependencies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\Globals.hlsl</Dependencies>
+      <FileType>Document</FileType>
+      <ObjectFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)/CompiledShaders/%(Filename).so</ObjectFile>
+    </HLSL>
+    <HLSL Include="..\Source\Shaders\Globals.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <Dependencies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Dependencies>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+      <FileType>Document</FileType>
+    </HLSL>
+    <HLSL Include="..\Source\Shaders\SeparatorPS.hlsl">
+      <Profile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4</Profile>
+      <EntryPoint Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ps_main</EntryPoint>
+      <OutputObjectFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(TargetDir)\CompiledShaders\$(ProjectName)Debug.pso</OutputObjectFile>
+      <Profile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4</Profile>
+      <EntryPoint Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ps_main</EntryPoint>
+      <OutputObjectFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)\CompiledShaders\$(ProjectName).pso</OutputObjectFile>
+      <FileType>Document</FileType>
+      <TargetProfile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">8</TargetProfile>
+      <ObjectFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)/CompiledShaders/%(Filename).so</ObjectFile>
+    </HLSL>
+    <HLSL Include="..\Source\Shaders\SeparatorVS.hlsl">
+      <Dependencies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\Globals.hlsl</Dependencies>
+      <FileType>Document</FileType>
+      <TargetProfile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">11</TargetProfile>
+      <EntryPoint Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vs_main</EntryPoint>
+      <ObjectFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)/CompiledShaders/%(Filename).so</ObjectFile>
+    </HLSL>
+    <HLSL Include="..\Source\Shaders\TMUFilteringPS.hlsl">
+      <Profile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4</Profile>
+      <EntryPoint Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">ps_main</EntryPoint>
+      <OutputObjectFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(TargetDir)\CompiledShaders\$(ProjectName)Debug.pso</OutputObjectFile>
+      <Profile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4</Profile>
+      <EntryPoint Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">ps_main</EntryPoint>
+      <OutputObjectFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)\CompiledShaders\$(ProjectName).pso</OutputObjectFile>
+      <Dependencies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\Globals.hlsl</Dependencies>
+      <FileType>Document</FileType>
+      <TargetProfile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">8</TargetProfile>
+      <ObjectFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)/CompiledShaders/%(Filename).so</ObjectFile>
+    </HLSL>
+    <HLSL Include="..\Source\Shaders\VertexShader.hlsl">
+      <Dependencies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\Globals.hlsl</Dependencies>
+      <FileType>Document</FileType>
+      <TargetProfile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">11</TargetProfile>
+      <EntryPoint Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vs_main</EntryPoint>
+      <ObjectFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)/CompiledShaders/%(Filename).so</ObjectFile>
+    </HLSL>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="..\Resources\resources.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="HLSL.targets" />
+  </ImportGroup>
+</Project>

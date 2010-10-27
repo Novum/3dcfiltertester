@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <PropertyPageSchema
+      Include="$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml" />
+      <AvailableItemName Include="HLSL">
+        <Targets>_HLSL</Targets>
+      </AvailableItemName>
+  </ItemGroup>
+  <PropertyGroup>
+    <ComputeLinkInputsTargets>
+      $(ComputeLinkInputsTargets);
+      ComputeHLSLOutput;
+    </ComputeLinkInputsTargets>
+    <ComputeLibInputsTargets>
+      $(ComputeLibInputsTargets);
+      ComputeHLSLOutput;
+    </ComputeLibInputsTargets>
+  </PropertyGroup>
+  <UsingTask
+    TaskName="HLSL"
+    TaskFactory="XamlTaskFactory"
+    AssemblyName="Microsoft.Build.Tasks.v4.0">
+    <Task>$(MSBuildThisFileDirectory)$(MSBuildThisFileName).xml</Task>
+  </UsingTask>
+  <Target
+    Name="_HLSL"
+    BeforeTargets="$(HLSLBeforeTargets)"
+    AfterTargets="$(HLSLAfterTargets)"
+    Condition="'@(HLSL)' != ''"
+    Outputs="%(HLSL.ObjectFile)"
+    Inputs="%(HLSL.Identity);%(HLSL.AdditionalDependencies);$(MSBuildProjectFile)"
+    DependsOnTargets="_SelectedFiles">
+    <ItemGroup Condition="'@(SelectedFiles)' != ''">
+      <HLSL Remove="@(HLSL)" Condition="'%(Identity)' != '@(SelectedFiles)'" />
+    </ItemGroup>
+    <ItemGroup>
+      <HLSL_tlog Include="%(HLSL.ObjectFile)" Condition="'%(HLSL.ObjectFile)' != '' and '%(HLSL.ExcludedFromBuild)' != 'true'">
+        <Source>@(HLSL, '|')</Source> 
+      </HLSL_tlog>
+    </ItemGroup>
+    <Message
+      Importance="High"
+      Text="%(HLSL.ExecutionDescription)" />
+    <HLSL
+      Condition="'@(HLSL)' != '' and '%(HLSL.ExcludedFromBuild)' != 'true'"
+      CommandLineTemplate="%(HLSL.CommandLineTemplate)"
+      NoLogo="%(HLSL.NoLogo)"
+	  ObjectFile="%(HLSL.ObjectFile)"
+	  EntryPoint="%(HLSL.EntryPoint)"
+	  DebuggingInformation="%(HLSL.DebuggingInformation)"
+	  OptimizationLevel="%(HLSL.OptimizationLevel)"
+      TargetProfile="%(HLSL.TargetProfile)"
+	  AdditionalOptions="%(HLSL.AdditionalOptions)"
+      Inputs="%(HLSL.Identity)" />
+  </Target>
+  <Target
+    Name="ComputeHLSLOutput"
+    Condition="'@(HLSL)' != ''">
+  </Target>
+</Project>
