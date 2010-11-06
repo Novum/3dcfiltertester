@@ -236,7 +236,7 @@ namespace engine
 		name += "Debug";
 #endif
 
-		std::string vso_filename = "CompiledShaders/" + name + ".vso";
+		std::string vso_filename = "CompiledShaders/" + name + ".so";
 
 		std::ifstream vertex_shader_file(vso_filename.c_str(), std::ios::in|std::ios::binary|std::ios::ate);
 		if(!vertex_shader_file.is_open()) throw Exception(L"Shader: File not found");
@@ -268,7 +268,7 @@ namespace engine
 		name += "Debug";
 #endif
 
-		std::string gso_filename = "CompiledShaders/" + name + ".gso";
+		std::string gso_filename = "CompiledShaders/" + name + ".so";
 
 		std::ifstream geometry_shader_file(gso_filename.c_str(), std::ios::in|std::ios::binary|std::ios::ate);
 		if(!geometry_shader_file.is_open()) throw Exception(L"Shader: File not found");
@@ -308,7 +308,7 @@ namespace engine
 		name += "Debug";
 #endif
 
-		std::string pso_filename = "CompiledShaders/" + name + ".pso";
+		std::string pso_filename = "CompiledShaders/" + name + ".so";
 
 		std::ifstream pixel_shader_file(pso_filename.c_str(), std::ios::in|std::ios::binary|std::ios::ate);
 		if(!pixel_shader_file.is_open()) throw Exception(L"Shader: File not found");

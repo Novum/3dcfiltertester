@@ -51,10 +51,10 @@
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">e:\Programming\libraries\wxWidgets-2.9.0\include;e:\Programming\Libraries\Microsoft DirectX SDK (June 2010)\include;E:\Programming\Libraries\boost\include\boost-1_43;$(IncludePath)</IncludePath>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">e:\Programming\libraries\wxWidgets-2.9.0\include\msvc;e:\Programming\libraries\wxWidgets-2.9.0\include;e:\Programming\Libraries\Microsoft DirectX SDK (June 2010)\include;E:\Programming\Libraries\boost\include\boost-1_43;$(IncludePath)</IncludePath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Programming\Libraries\wxWidgets-2.9.0\lib\vc_dll;e:\Programming\libraries\boost\lib;E:\Programming\Libraries\Microsoft DirectX SDK (June 2010)\Lib\x86;$(LibraryPath)</LibraryPath>
     <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">e:\Programming\libraries\wxWidgets-2.9.0\include\msvc;e:\Programming\libraries\wxWidgets-2.9.0\include;e:\Programming\Libraries\Microsoft DirectX SDK (June 2010)\include;E:\Programming\Libraries\boost\include\boost-1_43;$(IncludePath)</IncludePath>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Programming\Libraries\wxWidgets-2.9.0\lib\vc_dll;e:\Programming\libraries\boost\lib;E:\Programming\Libraries\Microsoft DirectX SDK (June 2010)\Lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <HLSL_Shader>
