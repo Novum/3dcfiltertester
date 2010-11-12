@@ -20,7 +20,7 @@ aniso_values compute_aniso_infos_simple(float2 duvdx, float2 duvdy, float2 duvdx
  {
 	aniso_values values;
 	
-	// Side lengths of footprint and diagonals
+	// Side lengths of footprint
 	float px = length(duvdxs);
 	float py = length(duvdys);
 	
