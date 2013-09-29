@@ -16,6 +16,15 @@ namespace engine
 		if ((hresult = DirectX::CreateDDSTextureFromFile(d3d10_device, filename.c_str(), &resource, &resource_view)) != S_OK)
 			throw Exception(L"DirectX::CreateDDSTextureFromFile failed: " + GetD3D10Error(hresult));
 
+		D3D10_RESOURCE_DIMENSION dim;
+		resource->GetType(&dim);
+
+		if (dim != D3D10_RESOURCE_DIMENSION_TEXTURE2D)
+			throw Exception(L"Texture: Only 2D textures are supported currently");
+
+		if ((hresult = resource->QueryInterface(__uuidof(ID3D10Texture2D), (LPVOID*)&texture)) != S_OK)
+			throw Exception(L"Texture: QueryInterface failed: " + GetD3D10Error(hresult));
+
 		SafeRelease(resource);
 	}
 
