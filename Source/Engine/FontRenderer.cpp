@@ -208,7 +208,7 @@ namespace engine
 
 	void FontRenderer::LoadTexture(std::wstring &font)
 	{
-		texture = new Texture(font + L".dds");	
+		texture = new Texture(font + L".dds", false);	
 
 		if(!texture) throw Exception(L"Could not load font resources");	
 	}

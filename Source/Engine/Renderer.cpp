@@ -11,7 +11,7 @@
 
 namespace engine
 {
-	Renderer::Renderer() : probe_object(0), render_mode(render_tmu), texture(0), do_lerp(true)
+	Renderer::Renderer() : probe_object(0), render_mode(render_tmu), do_lerp(true)
 	{
 		RenderStateManager &render_state_manager = engine.GetRenderStateManager();
 		ID3D10Device *d3d10_device = engine.GetDevice();
@@ -92,13 +92,14 @@ namespace engine
 		filter_parameter_constants.tex_scale = 1.0f;
 		filter_parameter_constants.filter_mode = 0.0f;
 		filter_parameter_constants.do_lerp = do_lerp;
+		filter_parameter_constants.gamma_correction = true;
 		filter_parameter_constant_buffer->Fill(&filter_parameter_constants);	
 		texture_movement = Vector2(0.0f, 0.0f);
 
 		// Load default texture
 		LoadTexture(L"Resources/default.dds");
 
-		// Create font rendere
+		// Create font renderer
 		font_renderer = new FontRenderer(L"Resources/font");
 	}
 
@@ -107,7 +108,6 @@ namespace engine
 		delete font_renderer;
 
 		delete filter_parameter_constant_buffer;
-		delete texture;
 
 		SafeRelease(separator_render_state.blend_state);
 		SafeRelease(separator_render_state.depth_stencil_state);
@@ -141,7 +141,7 @@ namespace engine
 		filter_parameter_constants.texcoord_translation[1] = 
 			fmod(filter_parameter_constants.texcoord_translation[1] 
 			+ timestep * (texture_movement[1] / filter_parameter_constants.tex_scale), 1.0f);
-		
+
 		filter_parameter_constant_buffer->Fill(&filter_parameter_constants);
 
 		ID3D10Device *d3d10_device = engine.GetDevice();
@@ -268,13 +268,10 @@ namespace engine
 			// Unbind texture from shader
 			tmu_filtering_render_state.ps_resources[0] = 0;
 			engine.GetRenderStateManager().SetRenderState(tmu_filtering_render_state);
-
-			// Delete old texture
-			delete texture;
 		}
 
 		// Load texture
-		texture = new Texture(file);
+		texture.reset(new Texture(file, filter_parameter_constants.gamma_correction != 0));
 
 		// Set resources
 		tmu_filtering_render_state.ps_resources[0] = texture->GetResourceView();
@@ -282,6 +279,8 @@ namespace engine
 
 		filter_parameter_constants.texture_size = Vector2((float)texture->GetWidth(), (float)texture->GetHeight());
 		filter_parameter_constant_buffer->Fill(&filter_parameter_constants);
+
+		texture_file = file;
 	}
 
 	void Renderer::SetMaxAnisotropy(unsigned int value)
@@ -333,5 +332,11 @@ namespace engine
 	{
 		filter_parameter_constants.tex_scale = scale;
 		filter_parameter_constant_buffer->Fill(&filter_parameter_constants);
+	}
+
+	void Renderer::SetGammaCorrection(const bool state)
+	{
+		filter_parameter_constants.gamma_correction = state;
+		LoadTexture(texture_file);
 	}
 }

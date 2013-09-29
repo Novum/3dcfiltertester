@@ -23,6 +23,7 @@ namespace gui
 		void OnLoadTexture(wxCommandEvent& event);
 		void OnSaveScreenshot(wxCommandEvent& event);
 		void OnSaveScreenshots(wxCommandEvent& event);
+		void OnToggleGammaCorrection(wxCommandEvent& event);
 		void OnToggleSettings(wxCommandEvent& event);
 		void OnToggleTunnel(wxCommandEvent& event);
 		void OnToggleRefrast(wxCommandEvent& event);

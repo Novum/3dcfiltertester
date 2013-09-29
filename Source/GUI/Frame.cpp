@@ -19,6 +19,7 @@ namespace gui
 		Menu_Quit,
 		Menu_About,				
 		Menu_Toggle_Settings,				
+		Menu_Toggle_Gamma_Correction,
 		Menu_Toggle_Tunnel,
 		Menu_Toggle_Refrast,
 		Menu_MemoryReport
@@ -32,6 +33,7 @@ namespace gui
 		EVT_MENU(Menu_SaveScreenshots, OnSaveScreenshots)
 		EVT_MENU(Menu_About, OnAbout)
 		EVT_MENU(Menu_Quit, OnQuit)				
+		EVT_MENU(Menu_Toggle_Gamma_Correction, OnToggleGammaCorrection)
 		EVT_MENU(Menu_Toggle_Settings, OnToggleSettings)		
 		EVT_MENU(Menu_Toggle_Tunnel, OnToggleTunnel)	
 		EVT_IDLE(OnIdle)
@@ -56,9 +58,10 @@ namespace gui
 		file_menu->Append(Menu_SaveScreenshots, L"Save &Screenshots...", L"Save screenshot sequence");
 		file_menu->AppendSeparator();
 		file_menu->Append(Menu_Quit, L"E&xit", L"Quit this program");		
-				
+		
+		view_menu->AppendCheckItem(Menu_Toggle_Gamma_Correction, L"&Gamma correction", L"Use gamma corrected filtering");
+		view_menu->AppendCheckItem(Menu_Toggle_Tunnel, L"Show &Tunnel", L"Shows tunnel mesh instead of plane");
 		view_menu->AppendCheckItem(Menu_Toggle_Settings, L"Show &Settings", L"Show settings pane");		
-		view_menu->AppendCheckItem(Menu_Toggle_Tunnel, L"Show &Tunnel", L"Shows tunnel mesh instead of plane");			
 #ifdef _DEBUG
 		view_menu->AppendSeparator();
 		view_menu->AppendCheckItem(Menu_Toggle_Refrast, L"Use &Refrast (debug)", L"Use the reference rasterizer");
@@ -103,6 +106,7 @@ namespace gui
 
 	void Frame::OnMenuOpen(wxMenuEvent& event)
 	{
+		menu_bar->Check(Menu_Toggle_Gamma_Correction, engine::engine.GetRenderer().GetGammaCorrection());
 		menu_bar->Check(Menu_Toggle_Settings, aui_manager.GetPane(L"settings").IsShown());		
 	}
 
@@ -180,6 +184,11 @@ namespace gui
 			viewport->SetCameraRotation(old_probe->GetDefaultCameraRotation());
 			viewport->Render();
 		}		
+	}
+
+	void Frame::OnToggleGammaCorrection(wxCommandEvent& event)
+	{
+		engine::engine.GetRenderer().SetGammaCorrection(event.IsChecked());
 	}
 
 	void Frame::OnToggleSettings(wxCommandEvent& event)

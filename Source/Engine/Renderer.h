@@ -5,6 +5,7 @@
 #include "ProbeObject.h"
 
 #include <D3D10_1.h>
+#include <memory>
 
 namespace engine
 {
@@ -25,6 +26,7 @@ namespace engine
 		float tex_scale;
 		float filter_mode;
 		int do_lerp;
+		int gamma_correction;
 	};	
 
 	class Renderer
@@ -55,6 +57,10 @@ namespace engine
 			texture_movement = Vector2(x, y); 
 		}
 		void SetTextureScale(float scale);		
+
+		void SetGammaCorrection(const bool state);
+		bool GetGammaCorrection() const { return filter_parameter_constants.gamma_correction != 0; }
+
 	private:
 		void UpdateFilterParameterConstantBuffer();		
 
@@ -70,8 +76,10 @@ namespace engine
 		RenderState separator_render_state;
 		
 		DynamicConstantBuffer *filter_parameter_constant_buffer;
-		FilterParameterConstants filter_parameter_constants;				
-		Texture *texture;
+		FilterParameterConstants filter_parameter_constants;
+
+		std::wstring texture_file;
+		std::unique_ptr<Texture> texture;
 
 		FontRenderer *font_renderer;
 	

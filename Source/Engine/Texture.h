@@ -11,7 +11,7 @@ namespace engine
 	class Texture
 	{
 	public:
-		Texture(std::wstring filename, bool srgb = false, bool color_mips = false);
+		Texture(std::wstring filename, bool srgb);
 		~Texture();
 		
 		ID3D10ShaderResourceView *GetResourceView() const { return resource_view; }

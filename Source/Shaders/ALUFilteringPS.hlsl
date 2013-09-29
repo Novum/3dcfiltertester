@@ -13,7 +13,7 @@ struct aniso_values
 	float2 axis1;	
 	float2 axis2;
 	float p_max;
-	float p_min;	
+	float p_min;
 };
 
 aniso_values compute_aniso_infos_simple(float2 duvdx, float2 duvdy, float2 duvdxs, float2 duvdys)
@@ -141,7 +141,7 @@ float3 ps_main(PSInput input) : SV_Target
 	// NVIDIA TMU workaround
 	const float lambda_tmu_fix = 0.3f;	
     
-	float3 color_sum = float3(0.0f, 0.0f, 0.0f);
+	float4 color_sum = float4(0.0f, 0.0f, 0.0f, 0.0f);
     
 	for(float i=0.0f; i<n; ++i) {
 		float2 texcoord = texcoord_start + i*dr;
@@ -152,12 +152,18 @@ float3 ps_main(PSInput input) : SV_Target
 		}
 		else {			
 			// Filter trilinear
-			float3 mip1 = albedo.SampleLevel(sample_state, texcoord, lambda_trunc + lambda_tmu_fix);
-			float3 mip2 = albedo.SampleLevel(sample_state, texcoord, lambda_trunc + 1.0f - lambda_tmu_fix);
+			float4 mip1 = albedo.SampleLevel(sample_state, texcoord, lambda_trunc + lambda_tmu_fix);
+			float4 mip2 = albedo.SampleLevel(sample_state, texcoord, lambda_trunc + 1.0f - lambda_tmu_fix);
 		    
 			color_sum += lerp(mip1, mip2, trilinear_lerp_factor);
 		}
 	}
+
+	float4 filterResult = color_sum / n;
 	
-	return (color_sum / n);
+	if (gamma_correction) {
+		return LinearToSRGB(filterResult);
+	}
+
+	return filterResult;
 }

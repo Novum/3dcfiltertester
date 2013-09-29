@@ -10,5 +10,11 @@ SamplerState sample_state : register(s0);
 
 float4 ps_main(PSInput input) : SV_Target
 {	
-    return albedo.SampleBias(sample_state, input.texcoord, lod_bias); 
+	float4 filterResult = albedo.SampleBias(sample_state, input.texcoord, lod_bias);
+
+	if (gamma_correction) {
+		return LinearToSRGB(filterResult);
+	}
+
+	return filterResult;
 }

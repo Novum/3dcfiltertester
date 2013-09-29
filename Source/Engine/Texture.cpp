@@ -7,7 +7,7 @@
 namespace engine
 {
 	// Loads a texture from a file and creates the resource view
-	Texture::Texture(std::wstring filename, bool srgb, bool color_mips)
+	Texture::Texture(std::wstring filename, bool srgb)
 	{
 		HRESULT hresult;
 		ID3D10Device *d3d10_device = engine.GetDevice();
