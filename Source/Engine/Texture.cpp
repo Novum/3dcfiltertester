@@ -13,7 +13,8 @@ namespace engine
 		ID3D10Device *d3d10_device = engine.GetDevice();
 
 		ID3D10Resource *resource;
-		if ((hresult = DirectX::CreateDDSTextureFromFile(d3d10_device, filename.c_str(), &resource, &resource_view)) != S_OK)
+		if ((hresult = DirectX::CreateDDSTextureFromFileEx(d3d10_device, filename.c_str(), 0, D3D10_USAGE_DEFAULT,
+				D3D10_BIND_SHADER_RESOURCE, 0, 0, srgb, &resource, &resource_view)) != S_OK)
 			throw Exception(L"DirectX::CreateDDSTextureFromFile failed: " + GetD3D10Error(hresult));
 
 		D3D10_RESOURCE_DIMENSION dim;
@@ -24,6 +25,11 @@ namespace engine
 
 		if ((hresult = resource->QueryInterface(__uuidof(ID3D10Texture2D), (LPVOID*)&texture)) != S_OK)
 			throw Exception(L"Texture: QueryInterface failed: " + GetD3D10Error(hresult));
+
+		D3D10_TEXTURE2D_DESC desc;
+		texture->GetDesc(&desc);
+		width = desc.Width;
+		height = desc.Height;
 
 		SafeRelease(resource);
 	}
