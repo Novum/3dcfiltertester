@@ -4,8 +4,6 @@
 #include "Engine.h"
 #include "../Misc/DDSTextureLoader.h"
 
-#include "../Misc/mmgr.h"
-
 namespace engine
 {
 	// Loads a texture from a file and creates the resource view

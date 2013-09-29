@@ -24,12 +24,6 @@
     <ClInclude Include="..\Source\Misc\DDSTextureLoader.h">
       <Filter>Misc</Filter>
     </ClInclude>
-    <ClInclude Include="..\Source\Misc\mmgr.h">
-      <Filter>Misc</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Misc\nommgr.h">
-      <Filter>Misc</Filter>
-    </ClInclude>
     <ClInclude Include="..\Source\GUI\Viewport.h">
       <Filter>GUI</Filter>
     </ClInclude>
@@ -123,9 +117,6 @@
       <Filter>GUI\Forms</Filter>
     </ClCompile>
     <ClCompile Include="..\Source\Misc\DDSTextureLoader.cpp">
-      <Filter>Misc</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Misc\mmgr.cpp">
       <Filter>Misc</Filter>
     </ClCompile>
     <ClCompile Include="..\Source\GUI\Viewport.cpp">

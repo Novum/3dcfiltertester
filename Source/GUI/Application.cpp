@@ -5,8 +5,6 @@
 #include "../Engine/Exception.h"
 #include "../Engine/ProbeObjectManager.h"
 
-#include "../Misc/mmgr.h"
-
 #include <wx/sysopt.h>
 #include <exception>
 

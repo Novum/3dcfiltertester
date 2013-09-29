@@ -155,8 +155,6 @@
     <ClInclude Include="..\Source\GUI\SettingsPane.h" />
     <ClInclude Include="..\Source\GUI\Viewport.h" />
     <ClInclude Include="..\Source\Forms\ScreenshotDialog.h" />
-    <ClInclude Include="..\Source\Misc\mmgr.h" />
-    <ClInclude Include="..\Source\Misc\nommgr.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Source\Engine\Camera.cpp" />
@@ -184,7 +182,6 @@
     <ClCompile Include="..\Source\GUI\Viewport.cpp" />
     <ClCompile Include="..\Source\Forms\ScreenshotDialog.cpp" />
     <ClCompile Include="..\Source\Misc\DDSTextureLoader.cpp" />
-    <ClCompile Include="..\Source\Misc\mmgr.cpp" />
   </ItemGroup>
   <ItemGroup>
     <HLSL Include="..\Source\Shaders\ALUFilteringPS.hlsl">
@@ -198,6 +195,10 @@
       <FileType>Document</FileType>
       <TargetProfile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">8</TargetProfile>
       <ObjectFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)/CompiledShaders/%(Filename).so</ObjectFile>
+      <TargetProfile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">8</TargetProfile>
+      <ObjectFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(TargetDir)/CompiledShaders/%(Filename)Debug.so</ObjectFile>
+      <OptimizationLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4</OptimizationLevel>
+      <DebuggingInformation Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DebuggingInformation>
     </HLSL>
     <HLSL Include="..\Source\Shaders\FilterGlobals.hlsl">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
@@ -215,6 +216,10 @@
       <FileType>Document</FileType>
       <TargetProfile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">8</TargetProfile>
       <ObjectFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)/CompiledShaders/%(Filename).so</ObjectFile>
+      <ObjectFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(TargetDir)/CompiledShaders/%(Filename)Debug.so</ObjectFile>
+      <TargetProfile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">8</TargetProfile>
+      <OptimizationLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4</OptimizationLevel>
+      <DebuggingInformation Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DebuggingInformation>
     </HLSL>
     <HLSL Include="..\Source\Shaders\FontVS.hlsl">
       <Profile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">0</Profile>
@@ -224,6 +229,11 @@
       <Dependencies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\Globals.hlsl</Dependencies>
       <FileType>Document</FileType>
       <ObjectFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)/CompiledShaders/%(Filename).so</ObjectFile>
+      <ObjectFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(TargetDir)/CompiledShaders/%(Filename)Debug.so</ObjectFile>
+      <TargetProfile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">11</TargetProfile>
+      <TargetProfile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">11</TargetProfile>
+      <OptimizationLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4</OptimizationLevel>
+      <DebuggingInformation Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DebuggingInformation>
     </HLSL>
     <HLSL Include="..\Source\Shaders\Globals.hlsl">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
@@ -242,6 +252,10 @@
       <FileType>Document</FileType>
       <TargetProfile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">8</TargetProfile>
       <ObjectFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)/CompiledShaders/%(Filename).so</ObjectFile>
+      <TargetProfile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">8</TargetProfile>
+      <ObjectFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(TargetDir)/CompiledShaders/%(Filename)Debug.so</ObjectFile>
+      <OptimizationLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4</OptimizationLevel>
+      <DebuggingInformation Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DebuggingInformation>
     </HLSL>
     <HLSL Include="..\Source\Shaders\SeparatorVS.hlsl">
       <Dependencies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\Globals.hlsl</Dependencies>
@@ -249,6 +263,11 @@
       <TargetProfile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">11</TargetProfile>
       <EntryPoint Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vs_main</EntryPoint>
       <ObjectFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)/CompiledShaders/%(Filename).so</ObjectFile>
+      <TargetProfile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">11</TargetProfile>
+      <ObjectFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(TargetDir)/CompiledShaders/%(Filename)Debug.so</ObjectFile>
+      <EntryPoint Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">vs_main</EntryPoint>
+      <OptimizationLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4</OptimizationLevel>
+      <DebuggingInformation Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DebuggingInformation>
     </HLSL>
     <HLSL Include="..\Source\Shaders\TMUFilteringPS.hlsl">
       <Profile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">4</Profile>
@@ -261,6 +280,10 @@
       <FileType>Document</FileType>
       <TargetProfile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">8</TargetProfile>
       <ObjectFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)/CompiledShaders/%(Filename).so</ObjectFile>
+      <TargetProfile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">8</TargetProfile>
+      <ObjectFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(TargetDir)/CompiledShaders/%(Filename)Debug.so</ObjectFile>
+      <OptimizationLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4</OptimizationLevel>
+      <DebuggingInformation Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DebuggingInformation>
     </HLSL>
     <HLSL Include="..\Source\Shaders\VertexShader.hlsl">
       <Dependencies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)\Globals.hlsl</Dependencies>
@@ -268,6 +291,11 @@
       <TargetProfile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">11</TargetProfile>
       <EntryPoint Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">vs_main</EntryPoint>
       <ObjectFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(TargetDir)/CompiledShaders/%(Filename).so</ObjectFile>
+      <TargetProfile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">11</TargetProfile>
+      <ObjectFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(TargetDir)/CompiledShaders/%(Filename)Debug.so</ObjectFile>
+      <EntryPoint Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">vs_main</EntryPoint>
+      <OptimizationLevel Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">4</OptimizationLevel>
+      <DebuggingInformation Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</DebuggingInformation>
     </HLSL>
   </ItemGroup>
   <ItemGroup>

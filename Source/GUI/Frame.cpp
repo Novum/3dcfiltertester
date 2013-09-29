@@ -10,8 +10,6 @@
 #include <wx/image.h>
 #include <string>
 
-#include "../Misc/mmgr.h"
-
 namespace gui 
 {
 	enum {	
@@ -39,7 +37,6 @@ namespace gui
 		EVT_IDLE(OnIdle)
 #ifdef _DEBUG
 		EVT_MENU(Menu_Toggle_Refrast, OnToggleRefrast)
-		EVT_MENU(Menu_MemoryReport, OnMemoryReport)
 #endif
 		EVT_ERASE_BACKGROUND(OnErase)		
 		EVT_CLOSE(OnClose)
@@ -219,11 +216,6 @@ namespace gui
 	void Frame::OnToggleRefrast(wxCommandEvent& event)
 	{
 		engine::engine.ToggleRefrast();
-	}
-
-	void Frame::OnMemoryReport(wxCommandEvent& event)
-	{
-		m_dumpMemoryReport();
 	}
 #endif
 

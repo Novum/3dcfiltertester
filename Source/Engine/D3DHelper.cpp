@@ -4,8 +4,6 @@
 
 #include <fstream>
 
-#include "../Misc/mmgr.h"
-
 namespace engine
 {
 	std::wstring GetD3D10Error(HRESULT hresult)

@@ -2,8 +2,6 @@
 #include "D3DHelper.h"
 #include "Exception.h"
 
-#include "../Misc/mmgr.h"
-
 namespace engine
 {
 	// These should roughly be big enough to buffer at least one frame of data

@@ -3,8 +3,6 @@
 #include "Exception.h"
 #include "D3DHelper.h"
 
-#include "../Misc/mmgr.h"
-
 namespace engine
 {
 	SwapChain::SwapChain(IDXGIFactory *dxgi_factory,HWND hwnd,unsigned int sample_count) 

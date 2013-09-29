@@ -28,9 +28,6 @@ namespace gui
 		void OnToggleRefrast(wxCommandEvent& event);
 		void OnAbout(wxCommandEvent& event);
 		void OnIdle(wxIdleEvent &event);
-#ifdef _DEBUG
-		void OnMemoryReport(wxCommandEvent& event);
-#endif
 		void OnQuit(wxCommandEvent& event);
 		void OnErase(wxEraseEvent &event) {}
 		void OnClose(wxCloseEvent &event);

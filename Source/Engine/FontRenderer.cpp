@@ -8,8 +8,6 @@
 
 #include <fstream>
 
-#include "../Misc/mmgr.h"
-
 namespace engine
 {
 	FontRenderer::FontRenderer(std::wstring font,float red,float green,float blue)
