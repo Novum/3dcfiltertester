@@ -8,6 +8,7 @@
 #include "../Engine/ProbeObjectManager.h"
 
 #include <wx/image.h>
+#include <string>
 
 #include "../Misc/mmgr.h"
 
@@ -151,15 +152,9 @@ namespace gui
 			int sequence_length = screenshot_dialog.sequence_length->GetValue();
 			
 			float sequence_step;
-			try {
-				std::wstring sequence_step_string = screenshot_dialog.sequence_step->GetValue().c_str();
-				sequence_step = boost::lexical_cast<float>(sequence_step_string);
-			}
-			catch(boost::bad_lexical_cast) {
-				wxMessageBox(L"Invalid step size", L"Error", wxOK | wxICON_ERROR, this);
-				return;
-			}
-
+			std::wstring sequence_step_string = screenshot_dialog.sequence_step->GetValue().c_str();
+			sequence_step = _wtof(sequence_step_string.c_str());
+	
 			if(path.size() == 0) {
 				wxMessageBox(L"Please select a path", L"Error", wxOK | wxICON_ERROR, this);
 				return;
@@ -179,7 +174,7 @@ namespace gui
 			for(int i=0; i<sequence_length; ++i) {	
 				renderer.SetTexcoordTranslation(0.0f, -i * sequence_step);
 				viewport->Render();
-				viewport->SaveScreenshot(path + L"_" + boost::lexical_cast<std::wstring>(i+1) + L".png");				
+				viewport->SaveScreenshot(path + L"_" + std::to_wstring(i+1) + L".png");				
 			}
 
 			renderer.SetTextureMovement(0.0f, 0.0f);

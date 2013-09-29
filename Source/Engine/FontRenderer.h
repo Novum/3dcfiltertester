@@ -4,7 +4,6 @@
 
 #include <string>
 #include <D3D10_1.h>
-#include <D3DX10.h>
 
 namespace engine
 {

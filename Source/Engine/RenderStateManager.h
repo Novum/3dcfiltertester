@@ -6,7 +6,7 @@
 #include <D3D10_1.h>
 #include <vector>
 #include <map>
-#include <boost/tuple/tuple.hpp>
+#include <tuple>
 #include <functional>
 
 namespace engine

@@ -2,7 +2,7 @@
 
 #include <wx/wxprec.h>
 #include <wx/image.h>
-#include <boost/thread.hpp>
+#include <thread>
 
 namespace gui
 {
@@ -17,8 +17,6 @@ namespace gui
 		virtual int OnRun();
 		virtual int OnExit();
 		virtual bool OnExceptionInMainLoop() { throw; }
-	private:
-		boost::thread *render_thread;
 	};
 
 	DECLARE_APP(Application)

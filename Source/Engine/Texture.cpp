@@ -2,10 +2,8 @@
 #include "D3DHelper.h"
 #include "Exception.h"
 #include "Engine.h"
+#include "../Misc/DDSTextureLoader.h"
 
-#include <D3DX10.h>
-
-// Must be included after D3DX10.h
 #include "../Misc/mmgr.h"
 
 namespace engine
@@ -16,69 +14,9 @@ namespace engine
 		HRESULT hresult;
 		ID3D10Device *d3d10_device = engine.GetDevice();
 
-		D3DX10_IMAGE_INFO image_info;
-		if((hresult = D3DX10GetImageInfoFromFile(filename.c_str(), 0, &image_info, 0)) != S_OK)
-			throw Exception(L"Texture: D3DX10GetImageInfoFromFile failed: " + GetD3D10Error(hresult));
-
 		ID3D10Resource *resource;
-		D3DX10_IMAGE_LOAD_INFO load_info;
-		ZeroMemory(&load_info, sizeof(D3DX10_IMAGE_LOAD_INFO));
-		load_info.Width = D3DX_FROM_FILE;
-		load_info.Height = D3DX_FROM_FILE;
-		load_info.Depth = D3DX_FROM_FILE;
-		load_info.FirstMipLevel = D3DX_FROM_FILE;
-		load_info.MipLevels = D3DX_FROM_FILE;
-		load_info.Usage = D3D10_USAGE_IMMUTABLE;
-		load_info.BindFlags = D3D10_BIND_SHADER_RESOURCE;
-		load_info.CpuAccessFlags = 0;
-		load_info.MiscFlags = 0;
-		load_info.Format = image_info.Format;
-		load_info.Filter = D3DX10_FILTER_NONE;
-		load_info.MipFilter = D3DX10_FILTER_NONE;
-
-		if((hresult = D3DX10CreateTextureFromFile(d3d10_device,filename.c_str(), &load_info, 0, &resource, 0)) != S_OK) 
-			throw Exception(L"Texture: D3DX10CreateTextureFromFile failed: " + GetD3D10Error(hresult));
-
-		D3D10_RESOURCE_DIMENSION dim;
-		resource->GetType(&dim);
-
-		if(dim != D3D10_RESOURCE_DIMENSION_TEXTURE2D)
-			throw Exception(L"Texture: Only 2D textures are supported currently");
-		
-		if((hresult = resource->QueryInterface(__uuidof(ID3D10Texture2D),(LPVOID*)&texture)) != S_OK)
-			throw Exception(L"Texture: QueryInterface failed: " + GetD3D10Error(hresult));
-
-		// If convertible to sRGB copy resource to SRGB format, because D3DX10CreateTextureFromFile doesn't handle it.
-		if(srgb && ConvertibleToSRGB(image_info.Format)) {
-			ID3D10Texture2D* copy_tex = NULL;
-			D3D10_TEXTURE2D_DESC copy_desc;
-			texture->GetDesc(&copy_desc);			
-			copy_desc.Format = MakeSRGB(copy_desc.Format);
-			if((hresult = d3d10_device->CreateTexture2D(&copy_desc, NULL, &copy_tex)) != S_OK)
-				throw Exception(L"Texture: CreateTexture2D failed: " + GetD3D10Error(hresult));
-
-			d3d10_device->CopyResource(copy_tex, texture);
-			texture->Release();
-
-			texture = copy_tex;			
-		}
-
-		D3D10_TEXTURE2D_DESC tex_desc;
-		texture->GetDesc(&tex_desc);	
-
-		width = tex_desc.Width;
-		height = tex_desc.Height;
-
-		D3D10_SHADER_RESOURCE_VIEW_DESC srv_desc;
-		ZeroMemory(&srv_desc,sizeof(srv_desc));
-		if(srgb) srv_desc.Format = MakeSRGB(tex_desc.Format);
-		else srv_desc.Format = tex_desc.Format;
-		srv_desc.ViewDimension = D3D10_SRV_DIMENSION_TEXTURE2D;
-		srv_desc.Texture2D.MipLevels = tex_desc.MipLevels;
-		srv_desc.Texture2D.MostDetailedMip = 0;
-
-		if((hresult = d3d10_device->CreateShaderResourceView(texture, &srv_desc, &resource_view)) != S_OK)
-			throw Exception(L"Texture: CreateShaderResourceView failed: " + GetD3D10Error(hresult));
+		if ((hresult = DirectX::CreateDDSTextureFromFile(d3d10_device, filename.c_str(), &resource, &resource_view)) != S_OK)
+			throw Exception(L"DirectX::CreateDDSTextureFromFile failed: " + GetD3D10Error(hresult));
 
 		SafeRelease(resource);
 	}

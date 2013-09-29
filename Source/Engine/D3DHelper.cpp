@@ -2,7 +2,6 @@
 #include "Exception.h"
 #include "Engine.h"
 
-#include <D3DX10core.h>
 #include <fstream>
 
 #include "../Misc/mmgr.h"
@@ -13,10 +12,6 @@ namespace engine
 	{
 		switch(hresult)
 		{
-		case D3DERR_INVALIDCALL:
-			return L"D3DERR_INVALIDCALL";
-		case D3DERR_WASSTILLDRAWING:
-			return L"D3DERR_WASSTILLDRAWING";
 		case D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS:
 			return L"D3D10_ERROR_TOO_MANY_UNIQUE_STATE_OBJECTS: ";
 		case D3D10_ERROR_FILE_NOT_FOUND:

@@ -4,25 +4,11 @@
     <Filter Include="Engine">
       <UniqueIdentifier>{fb402818-4bc6-4614-9031-bdaa6ed05737}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\Header Files">
-      <UniqueIdentifier>{88694db6-5c53-4aab-a6ab-d753003df780}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\Source Files">
-      <UniqueIdentifier>{a3612f26-53f5-45a6-aea9-7a558061b9db}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\Shaders">
       <UniqueIdentifier>{6e1d5cc7-8f98-4720-90db-7dab284b1548}</UniqueIdentifier>
     </Filter>
     <Filter Include="GUI">
       <UniqueIdentifier>{845b7e72-d8c2-4a3d-8ca9-4fcb35f633e0}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="GUI\Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="GUI\Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
     <Filter Include="GUI\Forms">
       <UniqueIdentifier>{6fcde2a3-d73d-414d-b14c-80df0f332717}</UniqueIdentifier>
@@ -30,186 +16,186 @@
     <Filter Include="Misc">
       <UniqueIdentifier>{9d254d75-913c-46fa-8ccb-d1a25b35f2b0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Misc\Source Files">
-      <UniqueIdentifier>{2bcbbab6-4811-4ad8-89ae-c15873837ca9}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Misc\Header Files">
-      <UniqueIdentifier>{16ba3b28-0e85-45ad-83ad-0bd67196476c}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Source\Engine\BufferInterfaces.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Engine\Camera.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Engine\D3DHelper.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Engine\DepthStencilBuffer.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Engine\DynamicBatchManager.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Engine\DynamicConstantBuffer.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Engine\Engine.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Engine\Exception.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Engine\FontRenderer.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Engine\LinearMath.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Engine\Plane.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Engine\PlaneProbe.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Engine\ProbeObject.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Engine\ProbeObjectManager.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Engine\Ray.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Engine\Renderer.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Engine\RenderStateManager.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Engine\RenderTarget.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Engine\StaticBuffers.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Engine\SwapChain.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Engine\Texture.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Engine\Timer.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\Engine\TunnelProbe.h">
-      <Filter>Engine\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\GUI\Application.h">
-      <Filter>GUI\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\GUI\Exception.h">
-      <Filter>GUI\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\GUI\Frame.h">
-      <Filter>GUI\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="resource.h">
-      <Filter>GUI\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\GUI\SettingsPane.h">
-      <Filter>GUI\Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Source\GUI\Viewport.h">
-      <Filter>GUI\Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="..\Source\Forms\ScreenshotDialog.h">
       <Filter>GUI\Forms</Filter>
     </ClInclude>
+    <ClInclude Include="..\Source\Misc\DDSTextureLoader.h">
+      <Filter>Misc</Filter>
+    </ClInclude>
     <ClInclude Include="..\Source\Misc\mmgr.h">
-      <Filter>Misc\Header Files</Filter>
+      <Filter>Misc</Filter>
     </ClInclude>
     <ClInclude Include="..\Source\Misc\nommgr.h">
-      <Filter>Misc\Header Files</Filter>
+      <Filter>Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\GUI\Viewport.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\GUI\Application.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\GUI\Exception.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\GUI\Frame.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\GUI\SettingsPane.h">
+      <Filter>GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Engine\BufferInterfaces.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Engine\Camera.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Engine\D3DHelper.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Engine\DepthStencilBuffer.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Engine\DynamicBatchManager.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Engine\DynamicConstantBuffer.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Engine\Engine.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Engine\Exception.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Engine\FontRenderer.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Engine\LinearMath.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Engine\Plane.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Engine\PlaneProbe.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Engine\ProbeObject.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Engine\ProbeObjectManager.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Engine\Ray.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Engine\Renderer.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Engine\RenderStateManager.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Engine\RenderTarget.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Engine\StaticBuffers.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Engine\SwapChain.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Engine\Texture.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Engine\Timer.h">
+      <Filter>Engine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Source\Engine\TunnelProbe.h">
+      <Filter>Engine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\Source\Engine\Camera.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Engine\D3DHelper.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Engine\DepthStencilBuffer.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Engine\DynamicBatchManager.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Engine\DynamicConstantBuffer.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Engine\Engine.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Engine\FontRenderer.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Engine\Plane.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Engine\PlaneProbe.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Engine\ProbeObjectManager.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Engine\Ray.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Engine\Renderer.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Engine\RenderStateManager.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Engine\RenderTarget.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Engine\StaticBuffers.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Engine\SwapChain.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Engine\Texture.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Engine\Timer.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\Engine\TunnelProbe.cpp">
-      <Filter>Engine\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\GUI\Application.cpp">
-      <Filter>GUI\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\GUI\Frame.cpp">
-      <Filter>GUI\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\GUI\SettingsPane.cpp">
-      <Filter>GUI\Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Source\GUI\Viewport.cpp">
-      <Filter>GUI\Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\Source\Forms\ScreenshotDialog.cpp">
       <Filter>GUI\Forms</Filter>
     </ClCompile>
+    <ClCompile Include="..\Source\Misc\DDSTextureLoader.cpp">
+      <Filter>Misc</Filter>
+    </ClCompile>
     <ClCompile Include="..\Source\Misc\mmgr.cpp">
-      <Filter>Misc\Source Files</Filter>
+      <Filter>Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\GUI\Viewport.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\GUI\Application.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\GUI\Frame.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\GUI\SettingsPane.cpp">
+      <Filter>GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Engine\Camera.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Engine\D3DHelper.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Engine\DepthStencilBuffer.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Engine\DynamicBatchManager.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Engine\DynamicConstantBuffer.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Engine\Engine.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Engine\FontRenderer.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Engine\Plane.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Engine\PlaneProbe.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Engine\ProbeObjectManager.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Engine\Ray.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Engine\Renderer.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Engine\RenderStateManager.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Engine\RenderTarget.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Engine\StaticBuffers.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Engine\SwapChain.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Engine\Texture.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Engine\Timer.cpp">
+      <Filter>Engine</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Source\Engine\TunnelProbe.cpp">
+      <Filter>Engine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

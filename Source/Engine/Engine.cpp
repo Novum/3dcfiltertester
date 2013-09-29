@@ -8,7 +8,6 @@
 #include "DynamicBatchManager.h"
 
 #include <fstream>
-#include <D3DX10.h>
 
 #include "../Misc/mmgr.h"
 
@@ -19,9 +18,6 @@ namespace engine
 	void Engine::Initialize()
 	{
 		HRESULT hresult;
-
-		if(FAILED(D3DX10CheckVersion(D3D10_SDK_VERSION, D3DX10_SDK_VERSION)))
-			throw Exception(L"Engine: D3DX10CheckVersion failed");
 
 #ifdef _DEBUG
 		D3D10_DRIVER_TYPE driver_type = D3D10_DRIVER_TYPE_HARDWARE;

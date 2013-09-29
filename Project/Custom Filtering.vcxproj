@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
       <Configuration>Debug</Configuration>
@@ -21,10 +21,12 @@
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
     <WholeProgramOptimization>true</WholeProgramOptimization>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <CharacterSet>Unicode</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -51,10 +53,10 @@
     <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
     <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
     <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">e:\Programming\libraries\wxWidgets-2.9.0\include\msvc;e:\Programming\libraries\wxWidgets-2.9.0\include;e:\Programming\Libraries\Microsoft DirectX SDK (June 2010)\include;E:\Programming\Libraries\boost\include\boost-1_43;$(IncludePath)</IncludePath>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\Programming\Libraries\wxWidgets-2.9.0\lib\vc_dll;e:\Programming\libraries\boost\lib;E:\Programming\Libraries\Microsoft DirectX SDK (June 2010)\Lib\x86;$(LibraryPath)</LibraryPath>
-    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">e:\Programming\libraries\wxWidgets-2.9.0\include\msvc;e:\Programming\libraries\wxWidgets-2.9.0\include;e:\Programming\Libraries\Microsoft DirectX SDK (June 2010)\include;E:\Programming\Libraries\boost\include\boost-1_43;$(IncludePath)</IncludePath>
-    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\Programming\Libraries\wxWidgets-2.9.0\lib\vc_dll;e:\Programming\libraries\boost\lib;E:\Programming\Libraries\Microsoft DirectX SDK (June 2010)\Lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(LIBRARIES)\wxWidgets-2.9.5\include\msvc;$(LIBRARIES)\wxWidgets-2.9.5\include;$(IncludePath)</IncludePath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(LIBRARIES)\wxWidgets-2.9.5\lib\vc_dll;$(LibraryPath)</LibraryPath>
+    <IncludePath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(LIBRARIES)\wxWidgets-2.9.5\include\msvc;$(LIBRARIES)\wxWidgets-2.9.5\include;$(IncludePath)</IncludePath>
+    <LibraryPath Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(LIBRARIES)\wxWidgets-2.9.5\lib\vc_dll;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <HLSL_Shader>
@@ -75,7 +77,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>d3d10.lib;dxgi.lib;d3dx10d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d10.lib;dxgi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>..\$(ProjectName)Debug.exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
@@ -109,7 +111,7 @@
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
     </ClCompile>
     <Link>
-      <AdditionalDependencies>d3d10.lib;dxgi.lib;d3dx10.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>d3d10.lib;dxgi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <OutputFile>..\$(ProjectName).exe</OutputFile>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <SubSystem>Windows</SubSystem>
@@ -148,6 +150,7 @@
     <ClInclude Include="..\Source\GUI\Application.h" />
     <ClInclude Include="..\Source\GUI\Exception.h" />
     <ClInclude Include="..\Source\GUI\Frame.h" />
+    <ClInclude Include="..\Source\Misc\DDSTextureLoader.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="..\Source\GUI\SettingsPane.h" />
     <ClInclude Include="..\Source\GUI\Viewport.h" />
@@ -180,6 +183,7 @@
     <ClCompile Include="..\Source\GUI\SettingsPane.cpp" />
     <ClCompile Include="..\Source\GUI\Viewport.cpp" />
     <ClCompile Include="..\Source\Forms\ScreenshotDialog.cpp" />
+    <ClCompile Include="..\Source\Misc\DDSTextureLoader.cpp" />
     <ClCompile Include="..\Source\Misc\mmgr.cpp" />
   </ItemGroup>
   <ItemGroup>

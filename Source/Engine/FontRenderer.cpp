@@ -6,9 +6,7 @@
 #include "DynamicBatchManager.h"
 #include "StaticBuffers.h"
 
-#include <boost/filesystem/operations.hpp>
-#include <boost/filesystem/fstream.hpp>
-namespace fs = boost::filesystem;
+#include <fstream>
 
 #include "../Misc/mmgr.h"
 
@@ -166,9 +164,7 @@ namespace engine
 
 	void FontRenderer::LoadCharInfos(std::wstring &font)
 	{
-		if(!fs::exists(font + L".fnt")) throw Exception(L"Could not load font resources");		
-
-		fs::ifstream filestream(font + L".fnt");
+		std::ifstream filestream(font + L".fnt");
 
 		char buffer[128];
 		filestream.getline(buffer,128);

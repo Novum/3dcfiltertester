@@ -2,7 +2,9 @@
 #include "Viewport.h"
 #include "../Engine/Engine.h"
 #include "../Engine/Renderer.h"
-#include <boost/lexical_cast.hpp>
+
+#include <string>
+#include <sstream>
 
 namespace gui
 {
@@ -158,7 +160,7 @@ namespace gui
 	void SettingsPane::OnAnisotropySliderChanged(wxScrollEvent &event)
 	{
 		unsigned int value = 1 << (max_anisotropy_slider->GetValue()-1);
-		max_anisotropy_value->SetLabel(boost::lexical_cast<std::wstring>(value) + L"x");
+		max_anisotropy_value->SetLabel(std::to_wstring(value) + L"x");
 		engine::engine.GetRenderer().SetMaxAnisotropy(value);		
 	}
 

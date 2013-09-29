@@ -3,8 +3,6 @@
 #include "DepthStencilBuffer.h"
 #include "Engine.h"
 
-#include <boost/tuple/tuple_comparison.hpp>
-
 namespace engine
 {
 	void RenderState::SetChanges(RenderState &old_state)

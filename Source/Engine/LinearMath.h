@@ -2,8 +2,6 @@
 
 #include <cmath>
 #include <string>
-#include <boost/lexical_cast.hpp>
-#include <D3DX9.h>
 
 namespace engine
 {
@@ -121,24 +119,6 @@ namespace engine
 
 		void Normalize() {
 			*this /= Length();
-		}
-
-		operator std::wstring() {
-			std::wstring ret = L"Vector(";
-			for(unsigned int i=0;i<dim;++i) {
-				ret += boost::lexical_cast<std::wstring>(vector[i]);
-				if(i!=dim-1) ret += L",";
-			}
-			return ret + L")";
-		}
-
-		operator std::string() {
-			std::string ret = "Vector(";
-			for(unsigned int i=0;i<dim;++i) {
-				ret += boost::lexical_cast<std::string>(vector[i]);
-				if(i!=dim-1) ret += ",";
-			}
-			return ret + ")";
 		}
 
 		type &operator[] (unsigned int i) { return vector[i]; }		
@@ -286,13 +266,6 @@ namespace engine
 			for(unsigned int y=0;y<rows;++y)
 				transpose[y][x] = matrix[x][y];
 		return transpose;
-	}
-
-	// 4x4 Inverse
-	inline Matrix<4,4,float> MatrixInverse(Matrix<4,4,float> &matrix) {
-		Matrix<4,4,float> inverse;		
-		D3DXMatrixInverse((D3DXMATRIX*)&inverse[0][0],0,(D3DXMATRIX*)&matrix[0][0]);
-		return inverse;
 	}
 
 	// X Rotation Matrix
