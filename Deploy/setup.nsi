@@ -31,7 +31,6 @@
 InstallDir "$PROGRAMFILES\3DCenter Filter Tester"
 InstallDirRegKey HKCU "Software\3DCenter Filter Tester" "Install Directory"
 
-Var DirectXSetupError
 Var VCSetupError
 
 Section "Filter Tester"
@@ -39,9 +38,9 @@ Section "Filter Tester"
 	SetOutPath "$INSTDIR"	
 
 	File "Filter Tester.exe"
-	File "wxbase290u_vc_custom.dll"
-	File "wxmsw290u_aui_vc_custom.dll"
-	File "wxmsw290u_core_vc_custom.dll"
+	File "wxbase295u_vc_custom.dll"
+	File "wxmsw295u_aui_vc_custom.dll"
+	File "wxmsw295u_core_vc_custom.dll"
 	File /r CompiledShaders
 	File /r Resources
 	File /r Textures
@@ -64,9 +63,9 @@ Section "Uninstall"
 	RMDir "$SMPROGRAMS\3DCenter Filter Tester"
 	
 	Delete "$INSTDIR\Filter Tester.exe"
-	Delete "$INSTDIR\wxbase290u_vc_custom.dll"
-	Delete "$INSTDIR\wxmsw290u_aui_vc_custom.dll"
-	Delete "$INSTDIR\wxmsw290u_core_vc_custom.dll"
+	Delete "$INSTDIR\wxbase295u_vc_custom.dll"
+	Delete "$INSTDIR\wxmsw295u_aui_vc_custom.dll"
+	Delete "$INSTDIR\wxmsw295u_core_vc_custom.dll"
 	
 	Delete "$INSTDIR\Textures\aftester.dds"
 	Delete "$INSTDIR\Textures\defaultcolored.dds"
@@ -83,13 +82,13 @@ Section "Uninstall"
 	Delete "$INSTDIR\Resources\font.fnt"
 	RMDir "$INSTDIR\Resources"
 	
-	Delete "$INSTDIR\CompiledShaders\ALUFilteringPS.pso"
-	Delete "$INSTDIR\CompiledShaders\FontPS.pso"
-	Delete "$INSTDIR\CompiledShaders\FontVS.vso"
-	Delete "$INSTDIR\CompiledShaders\SeparatorPS.pso"
-	Delete "$INSTDIR\CompiledShaders\SeparatorVS.vso"
-	Delete "$INSTDIR\CompiledShaders\TMUFilteringPS.pso"
-	Delete "$INSTDIR\CompiledShaders\VertexShader.vso"
+	Delete "$INSTDIR\CompiledShaders\ALUFilteringPS.so"
+	Delete "$INSTDIR\CompiledShaders\FontPS.so"
+	Delete "$INSTDIR\CompiledShaders\FontVS.so"
+	Delete "$INSTDIR\CompiledShaders\SeparatorPS.so"
+	Delete "$INSTDIR\CompiledShaders\SeparatorVS.so"
+	Delete "$INSTDIR\CompiledShaders\TMUFilteringPS.so"
+	Delete "$INSTDIR\CompiledShaders\VertexShader.so"
 	RMDir "$INSTDIR\CompiledShaders"
 
 	Delete "$INSTDIR\Uninstall.exe"	
@@ -113,20 +112,9 @@ Section "Visual C++ Runtime"
 	SetOutPath "$TEMP"
 	
 	File "vcredist_x86.exe"
-	DetailPrint "Running Visual C++ 2008 Runtime Setup..."
-	ExecWait '"$TEMP\vcredist_x86.exe" /q:a' $VCSetupError
-	DetailPrint "Finished Visual C++ 2008 Runtime Setup"
+	DetailPrint "Running Visual C++ 2013 RC Runtime Setup..."
+	ExecWait '"$TEMP\vcredist_x86.exe" /quiet' $VCSetupError
+	DetailPrint "Finished Visual C++ 2013 RC Runtime Setup"
 	
 	Delete "$TEMP\vcredist_x86.exe"
-SectionEnd
-
-Section "DirectX"
-	SetOutPath "$TEMP"
-	
-	File "dxwebsetup.exe"
-	DetailPrint "Running DirectX Setup..."
-	ExecWait '"$TEMP\dxwebsetup.exe"' $DirectXSetupError
-	DetailPrint "Finished DirectX Setup"
- 
-	Delete "$TEMP\dxwebsetup.exe"	
 SectionEnd

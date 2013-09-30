@@ -230,7 +230,7 @@ namespace gui
 
 	void Frame::OnAbout(wxCommandEvent& event)
 	{
-		wxMessageBox(L"3DCenter Filter Tester\nVersion 1.1\nAxel Gneiting 2009\n", 
+		wxMessageBox(L"3DCenter Filter Tester\nVersion 1.2\nAxel Gneiting 2013\n", 
 			L"About 3DCenter Filter Tester", wxOK | wxICON_INFORMATION, this);
 	}
 }
